@@ -1,0 +1,43 @@
+{
+  "data": {
+    "id": "domain-1",
+    "type": "domains",
+    "attributes": {
+      "name": "example.com",
+      "type": "root",
+      "hostname_status": "verified",
+      "ssl_status": "pending",
+      "origin_status": "verified",
+      "redirect": "root_to_www",
+      "cloudflare_strategy": "dns",
+      "downtime": null,
+      "wildcard_enabled": true,
+      "dns_records": {
+        "ssl": [{"type": "CNAME", "name": "_acme.example.com", "value": "dcv.example.test"}],
+        "pre_verification": "verify.example.test",
+        "origin": "origin.example.test",
+        "origin_cname": "origin-cname.example.test",
+        "dcv": "dcv.example.test"
+      },
+      "wildcard": null,
+      "www": {
+        "hostname_status": "pending",
+        "ssl_status": "pending",
+        "origin_status": "pending",
+        "dns_records": {
+          "ssl": [{"type": "TXT", "name": "_verify.www", "value": "token"}],
+          "pre_verification": "verify-www",
+          "origin": "origin-www",
+          "origin_cname": "origin-cname-www",
+          "dcv": "dcv-www"
+        }
+      },
+      "action_required": "add_dns_records",
+      "last_verified_at": "2026-09-01T10:00:00+00:00",
+      "created_at": null
+    },
+    "relationships": {"environment": {"data": {"type": "environments", "id": "env-1"}}},
+    "links": {"self": {"href": "https://cloud.laravel.com/api/domains/domain-1"}}
+  },
+  "included": []
+}

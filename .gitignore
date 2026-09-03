@@ -1,0 +1,10 @@
+# Installed Composer dependencies.
+/vendor/
+
+# Generated test and static-analysis artifacts.
+/build/
+/.phpunit.cache/
+/.php-cs-fixer.cache
+
+# Optional local Composer executable.
+/composer.phar

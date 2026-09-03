@@ -1,0 +1,250 @@
+{
+  "data": [
+    {
+      "id": "app-1",
+      "type": "applications",
+      "attributes": {
+        "name": "Shop",
+        "slug": "shop",
+        "region": "eu-central-1",
+        "root_directory": null,
+        "slack_channel": "#deploys",
+        "avatar_url": "https://example.test/avatar.png",
+        "created_at": "2026-08-20T10:15:30+00:00",
+        "repository": {
+          "full_name": "acme/shop",
+          "default_branch": "main"
+        }
+      },
+      "relationships": {
+        "repository": {
+          "data": {
+            "type": "repositories",
+            "id": "repo-1"
+          }
+        },
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "org-1"
+          }
+        },
+        "environments": {
+          "data": [
+            {
+              "type": "environments",
+              "id": "env-1"
+            }
+          ]
+        },
+        "deployments": {
+          "data": [
+            {
+              "type": "deployments",
+              "id": "dep-1"
+            }
+          ]
+        },
+        "defaultEnvironment": {
+          "data": {
+            "type": "environments",
+            "id": "env-1"
+          }
+        }
+      }
+    }
+  ],
+  "links": {
+    "first": "https://cloud.laravel.com/api/applications?page=1",
+        "last": "https://cloud.laravel.com/api/applications?page=1"
+  },
+  "meta": {
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "links": [
+      {
+        "url": null,
+        "label": "Previous",
+        "active": false
+      },
+      {
+        "url": "https://cloud.laravel.com/api/applications?page=1",
+        "label": "1",
+        "active": true
+      }
+    ],
+    "path": "https://cloud.laravel.com/api/applications",
+    "per_page": 15,
+    "to": 1,
+    "total": 1
+  },
+  "included": [
+    {
+      "id": "repo-1",
+      "type": "repositories",
+      "attributes": {
+        "name": "shop"
+      }
+    },
+    {
+      "id": "org-1",
+      "type": "organizations",
+      "attributes": {
+        "name": "Acme",
+        "slug": "acme"
+      }
+    },
+    {
+      "id": "env-1",
+      "type": "environments",
+      "attributes": {
+        "name": "Production",
+        "slug": "production",
+        "status": "running",
+        "created_from_automation": false,
+        "vanity_domain": "shop.laravel.cloud",
+        "php_major_version": "8.5",
+        "build_command": null,
+        "node_version": "24",
+        "deploy_command": "php artisan migrate --force",
+        "uses_octane": true,
+        "uses_hibernation": false,
+        "hibernation_wake_up_interval": null,
+        "uses_push_to_deploy": true,
+        "uses_deploy_hook": false,
+        "": {
+          "environment_variables": [
+            {
+              "key": "APP_ENV",
+              "value": "production"
+            }
+          ]
+        },
+        "network_settings": {
+          "cache": {
+            "strategy": "standard"
+          },
+          "response_headers": {
+            "frame": "SAMEORIGIN",
+            "content_type": "nosniff",
+            "hsts": {
+              "max_age": 31536000,
+              "include_subdomains": true,
+              "preload": false
+            }
+          },
+          "firewall": {
+            "bot_categories": [
+              "ai_crawler",
+              "security"
+            ],
+            "rate_limit": {
+              "429": true,
+              "level": "throttle",
+              "per_minute": 300,
+              "4xx": false
+            },
+            "under_attack_mode_started_at": "",
+            "block_path": true
+          },
+          "content_converter": false
+        },
+        "created_at": null
+      },
+      "relationships": {
+        "application": {
+          "data": {
+            "type": "applications",
+            "id": "app-1"
+          }
+        },
+        "branch": {
+          "data": null
+        },
+        "deployments": {
+          "data": [
+            {
+              "type": "deployments",
+              "id": "dep-1"
+            }
+          ]
+        },
+        "currentDeployment": {
+          "data": {
+            "type": "deployments",
+            "id": "dep-1"
+          }
+        },
+        "domains": {
+          "data": []
+        },
+        "primaryDomain": {
+          "data": null
+        },
+        "instances": {
+          "data": []
+        },
+        "database": {
+          "data": null
+        },
+        "cache": {
+          "data": null
+        },
+        "buckets": {
+          "data": []
+        },
+        "websocketApplication": {
+          "data": null
+        },
+        "secrets": {
+          "data": []
+        }
+      },
+      "links": {
+        "self": {
+          "href": "https://cloud.laravel.com/api/environments/env-1"
+        }
+      }
+    },
+    {
+      "id": "dep-1",
+      "type": "deployments",
+      "attributes": {
+        "status": "deployment.succeeded",
+        "branch_name": "main",
+        "commit_hash": "abc123",
+        "commit_message": "Release",
+        "commit_author": null,
+        "failure_reason": null,
+        "php_major_version": "8.5",
+        "build_command": null,
+        "node_version": "24",
+        "uses_octane": true,
+        "uses_hibernation": false,
+        "hibernation_wake_up_interval": null,
+        "started_at": "2026-08-20T10:00:00+00:00",
+        "finished_at": "2026-08-20T10:05:00+00:00"
+      },
+      "relationships": {
+        "environment": {
+          "data": {
+            "type": "environments",
+            "id": "env-1"
+          }
+        },
+        "initiator": {
+          "data": {
+            "type": "users",
+            "id": "user-1"
+          }
+        }
+      },
+      "links": {
+        "self": {
+          "href": "https://cloud.laravel.com/api/deployments/dep-1"
+        }
+      }
+    }
+  ]
+}

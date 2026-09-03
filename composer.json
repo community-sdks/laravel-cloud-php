@@ -1,0 +1,42 @@
+{
+    "name": "community-sdks/laravel-cloud-php",
+    "description": "A strongly typed, framework-agnostic PHP SDK for the Laravel Cloud API.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["laravel", "laravel-cloud", "sdk", "api"],
+    "require": {
+        "php": "^8.3",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^8.1",
+        "psr/http-client": "^1.0",
+        "psr/http-message": "^1.1 || ^2.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.88",
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^12.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "CommunitySDKs\\LaravelCloud\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CommunitySDKs\\LaravelCloud\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "analyse": "phpstan analyse --memory-limit=1G",
+        "format": "php-cs-fixer fix",
+        "format:check": "php-cs-fixer fix --dry-run --diff",
+        "check": ["@format:check", "@analyse", "@test"]
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": false
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

@@ -1,0 +1,13 @@
+# Static-analysis policy for production code and tests. Maximum level is used
+# so untyped API data cannot accidentally escape the internal JSON boundary.
+parameters:
+    level: max
+    bootstrapFiles:
+        - vendor/autoload.php
+    paths:
+        - src
+        - tests
+    tmpDir: build/phpstan
+    treatPhpDocTypesAsCertain: true
+    reportUnmatchedIgnoredErrors: true
+    checkMissingCallableSignature: true
