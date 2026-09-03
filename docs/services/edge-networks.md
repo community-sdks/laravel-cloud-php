@@ -1,17 +1,21 @@
 # Edge Networks Service
 
-Edge network operations.
-
-- PHP class: `CommunitySDKs\LaravelCloud\Services\EdgeNetworksService`
-- Client accessor: `$cloud->edgeNetworks()`
+List shared and dedicated edge networks available to the organization. Access it with `$cloud->edgeNetworks()`.
 
 ## Endpoints
 
-| SDK method | HTTP endpoint | Request | Response |
-| --- | --- | --- | --- |
-| _No endpoints implemented yet._ | — | — | — |
+| SDK method | HTTP endpoint | Typed result |
+| --- | --- | --- |
+| `list(?ListEdgeNetworksRequest $request)` | `GET /edge-networks` | `ListEdgeNetworksResponse` |
 
-Endpoint methods will be added here only after their official Laravel Cloud
-documentation and OpenAPI schema have been implemented and tested.
+```php
+use CommunitySDKs\LaravelCloud\DTO\Requests\EdgeNetworks\ListEdgeNetworksRequest;
+
+$networks = $cloud->edgeNetworks()->list(
+    new ListEdgeNetworksRequest(status: 'available'),
+);
+```
+
+Each resource exposes a typed tenancy type and zone status.
 
 [Back to the service index](README.md)

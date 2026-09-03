@@ -1,17 +1,25 @@
 # Commands Service
 
-Remote command execution operations.
-
-- PHP class: `CommunitySDKs\LaravelCloud\Services\CommandsService`
-- Client accessor: `$cloud->commands()`
+Run commands in an environment and inspect their execution state. Access it with `$cloud->commands()`.
 
 ## Endpoints
 
-| SDK method | HTTP endpoint | Request | Response |
-| --- | --- | --- | --- |
-| _No endpoints implemented yet._ | — | — | — |
+| SDK method | HTTP endpoint | Typed result |
+| --- | --- | --- |
+| `list(string $environment, ?ListCommandsRequest $request)` | `GET /environments/{environment}/commands` | `ListCommandsResponse` |
+| `run(string $environment, CreateCommandRequest $request)` | `POST /environments/{environment}/commands` | `CommandResponse` |
+| `get(string $command, ?GetCommandRequest $request)` | `GET /commands/{command}` | `CommandResponse` |
 
-Endpoint methods will be added here only after their official Laravel Cloud
-documentation and OpenAPI schema have been implemented and tested.
+```php
+use CommunitySDKs\LaravelCloud\DTO\Requests\Commands\CreateCommandRequest;
+
+$command = $cloud->commands()->run(
+    'environment-id',
+    new CreateCommandRequest('php artisan about'),
+);
+$latest = $cloud->commands()->get($command->data->id);
+```
+
+Command statuses, relationship includes, and exit codes are exposed through typed DTOs and enums.
 
 [Back to the service index](README.md)
