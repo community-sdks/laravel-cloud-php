@@ -64,6 +64,18 @@ final class ApplicationsHydrator
         return $this->application($resource);
     }
 
+    /** Hydrate one environment resource from decoded JSON. */
+    public function hydrateEnvironment(mixed $resource): EnvironmentResource
+    {
+        return $this->environment(DataReader::object($resource, 'environment'));
+    }
+
+    /** Hydrate one deployment resource from decoded JSON. */
+    public function hydrateDeployment(mixed $resource): DeploymentResource
+    {
+        return $this->deployment(DataReader::object($resource, 'deployment'));
+    }
+
     /**
      * Hydrate the optional JSON:API included collection.
      *

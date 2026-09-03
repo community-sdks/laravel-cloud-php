@@ -1,0 +1,1 @@
+{"data":[{"message":"GET /","level":"info","type":"access","logged_at":"2026-09-03T10:00:00Z","data":{"status":200,"method":"GET","path":"/","duration_ms":12.5,"bytes_sent":100,"ip":null,"user_agent":null,"country":null}}],"meta":{"cursor":"next","type":"access","from":"2026-09-03T09:00:00Z","to":"2026-09-03T10:00:00Z"}}

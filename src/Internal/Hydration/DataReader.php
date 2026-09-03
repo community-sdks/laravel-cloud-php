@@ -60,6 +60,16 @@ final class DataReader
         return null === $value ? null : self::int($value, $path);
     }
 
+    /** Read an integer or floating-point JSON number as a float. */
+    public static function number(mixed $value, string $path): float
+    {
+        if (!is_int($value) && !is_float($value)) {
+            throw new UnexpectedValueException(sprintf('%s must be a number.', $path));
+        }
+
+        return (float) $value;
+    }
+
     public static function bool(mixed $value, string $path): bool
     {
         if (!is_bool($value)) {
