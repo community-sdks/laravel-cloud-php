@@ -43,15 +43,30 @@ The client sends the token as a Bearer credential and uses `https://cloud.larave
 
 ## Services
 
-Services are typed, created lazily, and reused:
+Services are typed, created lazily, and reused. The following services currently
+have documented endpoint implementations:
+
+| Service | Client accessor | Implemented operations |
+| --- | --- | --- |
+| [Applications](docs/services/applications.md) | `applications()` | List, get, create, update, delete, upload avatar, and delete avatar. |
+| [Environments](docs/services/environments.md) | `environments()` | Lifecycle, configuration, variables, secrets, logs, metrics, edge cache, and vanity domains. |
+| [Domains](docs/services/domains.md) | `domains()` | List, create, get, update, verify, and delete. |
+| [Caches](docs/services/caches.md) | `caches()` | List, create, get, update, metrics, available types, and delete. |
+| [Commands](docs/services/commands.md) | `commands()` | List, run, and get. |
+| [Edge Networks](docs/services/edge-networks.md) | `edgeNetworks()` | List available edge networks. |
+
+For example:
 
 ```php
 $applications = $cloud->applications();
 $domains = $cloud->domains();
-$deployments = $cloud->deployments();
+$caches = $cloud->caches();
+$commands = $cloud->commands();
 ```
 
-Accessors exist for every currently known Laravel Cloud API group. Endpoint methods are added only from supplied official documentation and OpenAPI definitions.
+Accessors also exist for the other known Laravel Cloud API groups so future
+endpoints can be added without changing how the client is organized. An accessor
+does not imply that its endpoint contract has already been implemented.
 
 See the [complete service index](docs/services/README.md) for individual service
 pages and endpoint implementation status.
@@ -94,4 +109,9 @@ composer check
 
 ## Current status
 
-The transport, configuration, exception hierarchy, service registry, test tooling, and static-analysis foundation are implemented. The applications list endpoint is available. Additional methods—including domain verification—will be added endpoint-by-endpoint from the official Laravel Cloud documentation supplied for each operation; undocumented schemas are intentionally not guessed.
+The transport, configuration, exception hierarchy, service registry, test tooling,
+and static-analysis foundation are implemented. Typed endpoints are currently
+available for applications, environments, domains, caches, commands, and edge
+networks. Additional services will be implemented endpoint-by-endpoint from the
+official Laravel Cloud OpenAPI contracts; undocumented schemas are intentionally
+not guessed.
